@@ -1,0 +1,59 @@
+footer {
+  background: #0f0804;
+  border-top: 1px solid rgba(201,148,90,0.15);
+  padding: 4rem 3rem 2rem;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+.footer-brand h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.4rem;
+  color: var(--latte); margin-bottom: 0.8rem;
+}
+.footer-brand p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.8; }
+.footer-col h4 {
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem;
+}
+.footer-col p, .footer-col a {
+  font-size: 0.82rem; color: var(--text-muted); line-height: 2;
+  display: block; text-decoration: none; transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--cream); }
+.social-icons { display: flex; gap: 0.8rem; margin-top: 1rem; }
+.social-icon {
+  width: 36px; height: 36px; border: 1px solid rgba(201,148,90,0.3);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted); font-size: 0.85rem; cursor: pointer;
+  transition: all 0.25s; text-decoration: none;
+}
+.social-icon:hover { background: var(--caramel); border-color: var(--caramel); color: #fff; }
+.footer-subscribe {
+  border-top: 1px solid rgba(201,148,90,0.1);
+  border-bottom: 1px solid rgba(201,148,90,0.1);
+  padding: 2rem 0; margin-bottom: 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-subscribe p { font-size: 0.85rem; color: var(--text-muted); }
+.footer-subscribe span { color: var(--cream); font-size: 0.95rem; }
+.footer-subscribe-form {
+  display: flex; gap: 0; border: 1px solid rgba(201,148,90,0.25); border-radius: 2px; overflow: hidden;
+}
+.footer-subscribe-form input {
+  padding: 0.65rem 1.2rem; background: rgba(255,255,255,0.04);
+  border: none; color: var(--cream); font-family: 'Montserrat', sans-serif; font-size: 0.8rem;
+  outline: none; min-width: 220px;
+}
+.footer-subscribe-form input::placeholder { color: var(--text-muted); }
+.footer-subscribe-form button {
+  background: var(--medium-roast); color: var(--cream); border: none;
+  padding: 0.65rem 1.2rem; font-size: 0.75rem; letter-spacing: 0.12em;
+  text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+}
+.footer-subscribe-form button:hover { background: var(--caramel); }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.75rem; color: var(--text-muted); flex-wrap: wrap; gap: 1rem;
+}

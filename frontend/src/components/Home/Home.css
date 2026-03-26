@@ -1,0 +1,124 @@
+.hero {
+  min-height: calc(100vh - 68px);
+  background: linear-gradient(160deg, var(--espresso) 0%, var(--dark-roast) 45%, #3d2010 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 4rem 2rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 60%, rgba(160,98,42,0.18) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(201,148,90,0.1) 0%, transparent 50%);
+}
+.hero-tag {
+  font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+  border: 1px solid rgba(201,168,76,0.4); padding: 0.35rem 1.2rem; border-radius: 20px;
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7vw, 6rem); font-weight: 900;
+  color: var(--milk); line-height: 1.05;
+  position: relative; z-index: 1;
+}
+.hero h1 em { color: var(--latte); font-style: italic; }
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 300;
+  color: var(--text-muted); margin: 1.5rem 0 2.5rem;
+  max-width: 560px; line-height: 1.7; position: relative; z-index: 1;
+}
+.btn-primary {
+  background: var(--caramel); color: #fff;
+  border: none; padding: 1rem 2.8rem;
+  font-family: 'Montserrat', sans-serif; font-size: 0.82rem;
+  letter-spacing: 0.18em; text-transform: uppercase; cursor: pointer;
+  border-radius: 2px; transition: all 0.3s; position: relative; z-index: 1;
+}
+.btn-primary:hover { background: var(--latte); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(160,98,42,0.4); }
+ 
+.features {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0; background: var(--medium-roast);
+}
+.feature-card {
+  padding: 3rem 2rem; text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.feature-card:last-child { border-right: none; }
+.feature-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+.feature-card h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.1rem;
+  color: var(--cream); margin-bottom: 0.6rem;
+}
+.feature-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
+ 
+.story-section {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+.story-img {
+  overflow: hidden;
+  height: 500px;           
+}
+
+.story-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   
+  object-position: center;
+  display: block;
+}
+.story-text {
+  background: var(--milk); padding: 5rem 4rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.section-label {
+  font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--caramel); margin-bottom: 1rem;
+}
+.story-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; font-weight: 700; line-height: 1.2;
+  color: var(--espresso); margin-bottom: 1.5rem;
+}
+.story-text p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; color: #5c3317; line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+/* STAY IN TOUCH */
+.subscribe-section {
+  background: var(--espresso);
+  padding: 6rem 2rem; text-align: center;
+}
+.subscribe-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem); color: var(--cream);
+  margin-bottom: 0.8rem;
+}
+.subscribe-section p {
+  color: var(--text-muted); font-size: 0.9rem;
+  letter-spacing: 0.05em; margin-bottom: 2.5rem;
+}
+.subscribe-form {
+  display: flex; gap: 0; max-width: 480px; margin: 0 auto;
+  border: 1px solid rgba(201,148,90,0.3); border-radius: 2px; overflow: hidden;
+}
+.subscribe-form input {
+  flex: 1; padding: 1rem 1.5rem;
+  background: rgba(255,255,255,0.05); border: none;
+  color: var(--cream); font-family: 'Montserrat', sans-serif; font-size: 0.85rem;
+  outline: none;
+}
+.subscribe-form input::placeholder { color: var(--text-muted); }
+.subscribe-form button {
+  background: var(--caramel); color: #fff; border: none;
+  padding: 1rem 1.8rem; font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+  cursor: pointer; transition: background-color 0.25s;
+}
+.subscribe-form button:hover { background: var(--latte); }

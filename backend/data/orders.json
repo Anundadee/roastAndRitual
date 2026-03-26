@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1774415527585,
+    "date": "25/03/2026, 01:12:07",
+    "items": [
+      {
+        "id": 2,
+        "img": "/src/assets/images/sumatra.jpg",
+        "bg": "linear-gradient(135deg,#2d1b0e,#5c3317)",
+        "name": "Sumatra Mandheling",
+        "origin": "Indonesia · Dark Roast",
+        "desc": "Full-bodied with earthy complexity, dark chocolate, and a lingering smoky finish.",
+        "price": 1600,
+        "qty": 1
+      }
+    ],
+    "total": 1600,
+    "paymentMethod": "Standard",
+    "status": "Confirmed"
+  },
+  {
+    "id": 1774465690463,
+    "date": "25/03/2026, 15:08:10",
+    "items": [
+      {
+        "id": 5,
+        "img": "/src/assets/images/decaf.jpg",
+        "bg": "linear-gradient(135deg,#2d4a1a,#5c7a30)",
+        "name": "Decaf Swiss Water",
+        "origin": "Brazil · Medium Roast",
+        "desc": "Naturally decaffeinated. Smooth hazelnut and milk chocolate flavors without compromise.",
+        "price": 1700,
+        "qty": 1
+      }
+    ],
+    "total": 1700,
+    "paymentMethod": "Standard",
+    "status": "Confirmed"
+  }
+]
