@@ -1,3 +1,4 @@
+import API_URL from '../../config'
 import React, { useState } from 'react'
 import BtcModal from '../Btcmodal/Btcmodal'
 import './Cart.css'
@@ -12,7 +13,7 @@ const Cart = ({ cart, onClose, onUpdate }) => {
   const handlePlaceOrder = async () => {
     setOrdering(true)
     try {
-      const res = await fetch('http://localhost:5000/api/order', {
+      const res = await fetch(`${API_URL}/api/order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

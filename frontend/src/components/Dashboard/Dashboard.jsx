@@ -1,3 +1,4 @@
+import API_URL from '../../config'
 import React, { useState } from 'react'
 import './Dashboard.css'
 
@@ -13,7 +14,7 @@ const Dashboard = ({ onExit }) => {
   // ── LOGIN ──
   const handleLogin = async () => {
     try {
-      const res  = await fetch('http://localhost:5000/api/dashboard/login', {
+      const res = await fetch(`${API_URL}/api/dashboard/login`, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify({ password })
@@ -36,8 +37,8 @@ const Dashboard = ({ onExit }) => {
     setLoading(true)
     try {
       const [ordersRes, messagesRes] = await Promise.all([
-        fetch('http://localhost:5000/api/dashboard/orders'),
-        fetch('http://localhost:5000/api/dashboard/messages')
+        fetch(`${API_URL}/api/dashboard/orders`),
+        fetch(`${API_URL}/api/dashboard/messages`)
       ])
       setOrders(await ordersRes.json())
       setMessages(await messagesRes.json())
@@ -50,7 +51,7 @@ const Dashboard = ({ onExit }) => {
 
   // ── MARK MESSAGE AS READ ──
   const markAsRead = async (id) => {
-    await fetch(`http://localhost:5000/api/dashboard/messages/${id}/read`, {
+    await fetch(`${API_URL}/api/dashboard/messages/${id}/read`, {
       method: 'POST'
     })
     setMessages(prev => prev.map(m => m.id === id ? { ...m, read: true } : m))

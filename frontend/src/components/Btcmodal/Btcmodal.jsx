@@ -1,5 +1,6 @@
+import API_URL from '../../config'
 import React, { useState, useEffect } from 'react'
-import './Btcmodal.css'
+import './Btcodal.css'
 
 const BTC_ADDRESS = 'bc1qvnqecredevffcsq0v952sd3szqhxx76rwkefsj'
 
@@ -16,12 +17,12 @@ const BtcModal = ({ total, cart, onClose }) => {
     const fetchData = async () => {
       try {
         // Fetch live rate
-        const rateRes = await fetch('http://localhost:5000/api/btc-rate')
+       const rateRes = await fetch(`${API_URL}/api/btc-rate`)
         const rateData = await rateRes.json()
         setBtcRate(rateData.rate)
 
         // Fetch QR code
-        const qrRes = await fetch('http://localhost:5000/api/btc-qr')
+        const qrRes   = await fetch(`${API_URL}/api/btc-qr`)
         const qrData = await qrRes.json()
         setQrCode(qrData.qr)
       } catch (err) {
@@ -45,7 +46,7 @@ const BtcModal = ({ total, cart, onClose }) => {
   const handleSend = async () => {
     if (!txid.trim()) return
     try {
-      await fetch('http://localhost:5000/api/order', {
+      await fetch(`${API_URL}/api/order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
