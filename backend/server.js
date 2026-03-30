@@ -4,17 +4,23 @@ const cors       = require('cors')
 const dotenv     = require('dotenv')
 const axios      = require('axios')
 const QRCode     = require('qrcode')
-const fs         = require('fs')    // ✅ new — built into Node, no install needed
-const path       = require('path')  // ✅ new — built into Node, no install needed
+const fs         = require('fs') 
+const path       = require('path')  
 
 dotenv.config()
 
 const app = express()
-app.use(cors({ origin: 'http://localhost:5173', methods: ['GET', 'POST'] }))
+app.use(cors({
+  origin: [
+    'http://localhost:5173',                      // for local development
+    'https://roastandritual.vercel.app',          // for live website
+  ],
+  methods: ['GET', 'POST'],
+}))
 app.use(express.json())
 
 // ───── DATA FILE PATHS ─────
-// These JSON files will store your orders and messages
+// These JSON files store your orders and messages
 const ORDERS_FILE   = path.join(__dirname, 'data', 'orders.json')
 const MESSAGES_FILE = path.join(__dirname, 'data', 'messages.json')
 
