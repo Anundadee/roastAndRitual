@@ -16,13 +16,20 @@
   --text-muted: #a08060;
 }
  
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
  
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--white);
   color: var(--espresso);
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .page { min-height: 100vh; padding-top: 68px; }
@@ -38,3 +45,4 @@ body {
   .values-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
 }
+
