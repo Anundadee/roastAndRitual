@@ -57,4 +57,15 @@
   color: var(--medium-roast); padding: 1rem; border-radius: 2px;
   text-align: center; font-size: 0.85rem; margin-top: 1rem;
 }
+
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
  

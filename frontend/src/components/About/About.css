@@ -53,3 +53,16 @@
   color: var(--espresso); margin-bottom: 0.6rem;
 }
 .value-card p { font-size: 0.82rem; color: #7a5030; line-height: 1.8; }
+
+@media (max-width: 768px) {
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-photo {
+    height: 300px;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}

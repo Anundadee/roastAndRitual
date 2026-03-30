@@ -57,3 +57,28 @@ footer {
   display: flex; align-items: center; justify-content: space-between;
   font-size: 0.75rem; color: var(--text-muted); flex-wrap: wrap; gap: 1rem;
 }
+
+@media (max-width: 768px) {
+  footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-subscribe {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-subscribe-form {
+    width: 100%;
+  }
+  .footer-subscribe-form input {
+    min-width: unset;
+    flex: 1;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

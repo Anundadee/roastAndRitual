@@ -79,3 +79,9 @@
   margin-bottom: 1rem;
   line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+  .cart-panel {
+    width: 100vw;  /* full width on mobile */
+  }
+}

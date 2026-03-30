@@ -48,3 +48,12 @@ nav {
 }
 .dropdown button:last-child { border-bottom: none; }
 .dropdown button:hover { background: var(--medium-roast); color: var(--gold); padding-left: 2rem; }
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0 1rem;
+  }
+  .nav-brand {
+    font-size: 1.1rem;
+  }
+}

@@ -72,3 +72,10 @@
 
 
 .btn-add:hover { background: var(--caramel) }
+
+@media (max-width: 768px) {
+  .shop-grid {
+    grid-template-columns: 1fr;  /* one card per row */
+    padding: 0 1rem;
+  }
+}

@@ -220,3 +220,15 @@
   text-align: center;
 }
 .btc-close:hover { background: var(--caramel); }
+
+@media (max-width: 768px) {
+  .btc-modal {
+    margin: 0;
+    border-radius: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+  .btc-body {
+    padding: 1.5rem;
+  }
+}

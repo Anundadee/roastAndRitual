@@ -44,3 +44,10 @@
   font-size: 0.78rem; color: var(--text-muted);
   display: flex; align-items: center; gap: 0.4rem;
 }
+
+@media (max-width: 768px) {
+  .locations-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem 3rem;
+  }
+}

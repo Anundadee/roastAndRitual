@@ -122,3 +122,32 @@
   cursor: pointer; transition: background-color 0.25s;
 }
 .subscribe-form button:hover { background: var(--latte); }
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero-sub {
+    font-size: 1rem;
+  }
+  .features {
+    grid-template-columns: 1fr 1fr;  /* 2 columns on mobile */
+  }
+  .feature-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  
+  .story-section {
+    grid-template-columns: 1fr;  /* stack vertically */
+  }
+  .story-img {
+    height: 250px;
+  }
+  .story-text {
+    padding: 2.5rem 1.5rem;
+  }
+}
