@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './BtcModal.css'
+import './Btcmodal.css'
 
 const BTC_ADDRESS = 'bc1qvnqecredevffcsq0v952sd3szqhxx76rwkefsj'
 

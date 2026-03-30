@@ -1,4 +1,4 @@
-import { LOCATIONS } from '../data/data';
+import { LOCATIONS } from '../Data/Data';
 import React from 'react'
 import './Find.css'
 
