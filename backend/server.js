@@ -149,13 +149,21 @@ ${message}
 app.get('/api/btc-rate', async (req, res) => {
   try {
     const response = await axios.get(
-      'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=kes'
+      'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=kes',
+      {
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': 'RoastAndRitual/1.0'
+        },
+        timeout: 10000  // 10 second timeout
+      }
     )
     const rate = response.data.bitcoin.kes
     res.json({ rate })
   } catch (err) {
-    console.error(err)
-    res.status(500).json({ error: 'Could not fetch BTC rate' })
+    console.error('BTC rate error:', err.message)
+    // fallback rate if CoinGecko is down
+    res.json({ rate: 8500000 })
   }
 })
 
