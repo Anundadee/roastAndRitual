@@ -1,6 +1,6 @@
 import API_URL from '../../config'
 import React, { useState, useEffect } from 'react'
-import './Btcodal.css'
+import './Btcmodal.css'
 
 const BTC_ADDRESS = 'bc1qvnqecredevffcsq0v952sd3szqhxx76rwkefsj'
 
