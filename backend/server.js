@@ -24,7 +24,6 @@ app.use(express.json())
 const ORDERS_FILE   = path.join(__dirname, 'data', 'orders.json')
 const MESSAGES_FILE = path.join(__dirname, 'data', 'messages.json')
 
-// ───── HELPER: make sure data folder and files exist ─────
 const ensureDataFiles = () => {
   const dataDir = path.join(__dirname, 'data')
   if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir)
