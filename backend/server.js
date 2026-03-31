@@ -50,19 +50,23 @@ app.post('/api/order', async (req, res) => {
   const { cart, total, paymentMethod } = req.body
 
   // Save order to orders.json
-  const orders = readJSON(ORDERS_FILE)
-  const newOrder = {
-    id:            Date.now(),                          // unique ID
-    date:          new Date().toLocaleString('en-KE'),  // readable date
-    items:         cart,
-    total,
-    paymentMethod,
-    status:        paymentMethod.startsWith('Bitcoin') ? 'Pending BTC Verification' : 'Confirmed'
+  try {
+    const orders = readJSON(ORDERS_FILE)
+    const newOrder = {
+      id:            Date.now(),
+      date:          new Date().toLocaleString('en-KE'),
+      items:         cart,
+      total,
+      paymentMethod,
+      status: paymentMethod.startsWith('Bitcoin') ? 'Pending BTC Verification' : 'Confirmed'
+    }
+    orders.push(newOrder)
+    writeJSON(ORDERS_FILE, orders)
+  } catch (err) {
+    console.error('Could not save order:', err.message)
   }
-  orders.push(newOrder)
-  writeJSON(ORDERS_FILE, orders)
 
-  // Build email
+  // Send email separately — don't let email failure break the order
   const itemList = cart.map(item =>
     `• ${item.name} x${item.qty} — KES ${(item.price * item.qty).toFixed(2)}`
   ).join('\n')
@@ -86,34 +90,42 @@ PAYMENT METHOD: ${paymentMethod}
     `,
   }
 
+
   try {
     await transporter.sendMail(mailOptions)
-    res.json({ success: true, message: 'Order received!' })
+    console.log('Email sent successfully')
   } catch (err) {
-    console.error('Email error:', err)
-    res.status(500).json({ success: false, message: 'Failed to send email' })
+    console.error('Email error:', err.message)
   }
+
+  res.json({ success: true, message: 'Order received!' })
 })
+
 
 // ───── ROUTE 2: CONTACT FORM ─────
 app.post('/api/contact', async (req, res) => {
   const { firstName, lastName, email, subject, message } = req.body
 
-  // Save message to messages.json
-  const messages = readJSON(MESSAGES_FILE)
-  const newMessage = {
-    id:        Date.now(),
-    date:      new Date().toLocaleString('en-KE'),
-    firstName,
-    lastName,
-    email,
-    subject,
-    message,
-    read:      false   // lets you mark messages as read in the dashboard
+  // Save message
+  try {
+    const messages = readJSON(MESSAGES_FILE)
+    const newMessage = {
+      id:        Date.now(),
+      date:      new Date().toLocaleString('en-KE'),
+      firstName,
+      lastName,
+      email,
+      subject,
+      message,
+      read: false
+    }
+    messages.push(newMessage)
+    writeJSON(MESSAGES_FILE, messages)
+  } catch (err) {
+    console.error('Could not save message:', err.message)
   }
-  messages.push(newMessage)
-  writeJSON(MESSAGES_FILE, messages)
 
+  // Send email
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to:   process.env.EMAIL_USER,
@@ -135,13 +147,15 @@ ${message}
     `,
   }
 
+  
   try {
     await transporter.sendMail(mailOptions)
-    res.json({ success: true, message: 'Message sent!' })
+    console.log('Contact email sent successfully')
   } catch (err) {
-    console.error('Email error:', err)
-    res.status(500).json({ success: false, message: 'Failed to send message' })
+    console.error('Contact email error:', err.message)
   }
+
+  res.json({ success: true, message: 'Message sent!' })
 })
 
 // ───── ROUTE 3: LIVE BTC/KES RATE ─────
