@@ -216,10 +216,29 @@ app.post('/api/dashboard/messages/:id/read', (req, res) => {
   res.json({ success: true })
 })
 
+
+
 // ───── TEST ROUTE ─────
 app.get('/api/test', (req, res) => {
   res.json({ message: '✅ Backend is working!' })
 })
+
+// ───── TEST EMAIL ROUTE ─────
+app.get('/api/test-email', async (req, res) => {
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to:   process.env.EMAIL_USER,
+      subject: 'Test Email from Roast & Ritual',
+      text: 'If you receive this, your email setup is working!'
+    })
+    res.json({ success: true, message: 'Test email sent!' })
+  } catch (err) {
+    console.error('Email test error:', err)
+    res.status(500).json({ success: false, error: err.message })
+  }
+})
+
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`))
