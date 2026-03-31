@@ -15,8 +15,11 @@ app.use(cors({
     'http://localhost:5173',                      // for local development
     'https://roast-and-ritual-mu.vercel.app',          // for live website
   ],
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true
 }))
+
+
 app.use(express.json())
 
 // ───── DATA FILE PATHS ─────
