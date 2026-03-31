@@ -15,12 +15,7 @@ return (
             ))}
           </div>
         </div>
-        <div className="footer-col">
-          <h4>About Us</h4>
-          {["Our Story", "Our Mission", "Sourcing", "Sustainability", "Careers"].map(link => (
-            <a href="#" key={link}>{link}</a>
-          ))}
-        </div>
+       
         <div className="footer-col">
           <h4>Keep In Touch</h4>
           <a href="#">hello@roastandritual.co.ke</a>

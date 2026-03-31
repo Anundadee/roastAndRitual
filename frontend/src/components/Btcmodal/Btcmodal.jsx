@@ -26,8 +26,8 @@ const BtcModal = ({ total, cart, onClose }) => {
         const qrData = await qrRes.json()
         setQrCode(qrData.qr)
       } catch (err) {
-        console.error(err)
-        setBtcRate(8500000) // fallback rate
+        console.error('Fetch failed:', err)
+        setBtcRate(8500000)
       } finally {
         setLoading(false)
       }
