@@ -232,21 +232,6 @@ app.post('/api/dashboard/messages/:id/read', (req, res) => {
   res.json({ success: true })
 })
 
-// ───── TEST EMAIL ROUTE ─────
-app.get('/api/test-email', async (req, res) => {
-  try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to:   process.env.EMAIL_USER,
-      subject: 'Test Email from Roast & Ritual',
-      text: 'If you receive this, your email setup is working!'
-    })
-    res.json({ success: true, message: 'Test email sent!' })
-  } catch (err) {
-    console.error('Email test error:', err)
-    res.status(500).json({ success: false, error: err.message })
-  }
-})
 
 // ───── TEST ROUTE ─────
 app.get('/api/test', (req, res) => {
