@@ -216,13 +216,6 @@ app.post('/api/dashboard/messages/:id/read', (req, res) => {
   res.json({ success: true })
 })
 
-
-
-// ───── TEST ROUTE ─────
-app.get('/api/test', (req, res) => {
-  res.json({ message: '✅ Backend is working!' })
-})
-
 // ───── TEST EMAIL ROUTE ─────
 app.get('/api/test-email', async (req, res) => {
   try {
@@ -239,6 +232,10 @@ app.get('/api/test-email', async (req, res) => {
   }
 })
 
+// ───── TEST ROUTE ─────
+app.get('/api/test', (req, res) => {
+  res.json({ message: '✅ Backend is working!' })
+})
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`))
