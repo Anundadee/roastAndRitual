@@ -92,8 +92,15 @@ const Cart = ({ cart, onClose, onUpdate }) => {
                     onClick={handlePlaceOrder}
                     disabled={ordering}
                   >
-                    {ordering ? 'Placing Order...' : 'Place Order'}
-                  </button>
+                     {ordering ? (
+        <>
+          <span className="loading-spinner"></span>
+          Processing... (may take up to 60s)
+        </>
+      ) : (
+        'Place Order'
+      )}
+    </button>
                   <button className="btn-btc" onClick={() => setShowBtc(true)}>
                     <span>₿</span> Pay with Bitcoin
                   </button>
